@@ -1,0 +1,41 @@
+4.a) 
+   Consider the following loop:
+
+      x = 1
+      !$omp parallel do firstprivate(x)
+      do i = 1, N
+         y(i) = x + i
+         x = i
+      enddo
+
+      x = 1;
+      #pragma omp parallel for firstprivate(x)
+      for (i = 1; i <= N; i++) {
+         y[i] = x + i;
+         x = i;
+      }
+
+
+   A) Why is this loop incorrect (Hint: Does y(i) get the same result
+      regardless of the number of threads executing the loop?)
+
+   B) What is the value of i at the end of the loop?
+      What is the value of x at the end of the loop?
+
+   C) What would be the value of x at the end of the loop if it was
+      scoped shared?
+
+   D) Can this loop be parallelised correctly (i.e., preserving
+      sequential semantics) just with the use of directives?
+      Parallelise the loop (by changing the code).
+
+
+4.b)
+   How could one parallelise:
+
+      do i = 2, n
+         a(i) = a(i) + a(i - 1)
+      enddo
+
+      for (i = 1; i < N; i++)
+         a[i] += a[i - 1];

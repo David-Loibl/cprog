@@ -1,0 +1,25 @@
+
+Exercise 'master-worker'
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Write a simple master-worker program.
+
+No real work has to be performed.  Work is emulated by waiting for one
+second.  This can be implemented with the following system calls:
+
+	C       : #include <stdlib.h>
+        	  system("sleep 1");
+ 
+	Fortran : call system("sleep 1")   ! (ifort and gfortran compilers)
+
+The master's task is to send task IDs to the workers upon their request.
+(Task IDs are integers from 1 to MAXTASK=40, say.)
+
+If the task queue is empty the master sends an 'end-of-work' message.
+(The master can send -1 as a task ID, for example.) 
+
+The workers are supposed to print out their rank and the task ID they received
+and then wait for one second.
+
+Hint: Read about 'MPI_ANY_SOURCE' in the MPI standard and the 'status'
+returned in MPI_Recv().

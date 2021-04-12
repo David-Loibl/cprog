@@ -1,0 +1,65 @@
+Sketch of the solution programmed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What the loop effectively does:
+
+a(1) = a(1)
+a(2) = a(1) + a(2)
+a(3) = a(1) + a(2) + a(3)
+a(4) = a(1) + a(2) + a(3) + a(4)
+a(5) = a(1) + a(2) + a(3) + a(4) + a(5)
+a(6) = a(1) + a(2) + a(3) + a(4) + a(5) + a(6)
+a(7) = a(1) + a(2) + a(3) + a(4) + a(5) + a(6) + a(7)
+a(8) = a(1) + a(2) + a(3) + a(4) + a(5) + a(6) + a(7) + a(8)
+a(9) = a(1) + a(2) + a(3) + a(4) + a(5) + a(6) + a(7) + a(8) + a(9)
+
+
+One can perform summations in blocks, e.g.:
+
+a(1) = a(1)
+a(2) = a(1)+a(2)
+a(3) = a(1)+a(2)+a(3)
+
+a(4) = a(1)+a(2)+a(3) + a(4)
+a(5) = a(1)+a(2)+a(3) + a(4)+a(5)
+a(6) = a(1)+a(2)+a(3) + a(4)+a(5)+a(6)
+
+a(7) = a(1)+a(2)+a(3) + a(4)+a(5)+a(6) + a(7)
+a(8) = a(1)+a(2)+a(3) + a(4)+a(5)+a(6) + a(7)+a(8)
+a(9) = a(1)+a(2)+a(3) + a(4)+a(5)+a(6) + a(7)+a(8)+a(9)
+
+...
+
+
+Step 1: calculation of partial sums
+
+a(1) = a(1)
+a(2) = a(1)+a(2)
+a(3) = a(1)+a(2)+a(3)  -> psum(thread 0)
+
+a(4) = a(4)
+a(5) = a(4)+a(5)
+a(6) = a(4)+a(5)+a(6)  -> psum(thread 1)
+
+a(7) = a(7)
+a(8) = a(7)+a(8)
+a(9) = a(7)+a(8)+a(9)  -> psum(thread 2)
+
+...
+
+
+Step 2: addition of partial sums
+
+a(1) = a(1)
+a(2) = a(1)+a(2)
+a(3) = a(1)+a(2)+a(3)
+
+a(4) = psum(thread 0) + a(4)
+a(5) = psum(thread 0) + a(4)+a(5)
+a(6) = psum(thread 0) + a(4)+a(5)+a(6)
+
+a(7) = psum(thread 0) + psum(thread 1) + a(7)
+a(8) = psum(thread 0) + psum(thread 1) + a(7)+a(8)
+a(9) = psum(thread 0) + psum(thread 1) + a(7)+a(8)+a(9)
+
+...

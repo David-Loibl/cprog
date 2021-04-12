@@ -1,0 +1,7 @@
+
+Programming exercise: 'master-worker' program with OpenMP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Write a 'master-worker' program with OpenMP.
+(see corresponding exercise for MPI)
+

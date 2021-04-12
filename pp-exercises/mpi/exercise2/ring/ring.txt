@@ -1,0 +1,13 @@
+
+Exercise: Rotating information around a ring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- A set of processes are arranged in a ring.
+
+- Each process stores its rank in MPI_COMM_WORLD in an integer.
+
+- Each process passes this on to its neighbour on the right.
+
+- Keep passing what is received until the own rank is back where it started.
+
+- Each processor calculates the sum of the values.

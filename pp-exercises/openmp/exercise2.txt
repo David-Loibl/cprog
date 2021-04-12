@@ -1,0 +1,42 @@
+2. Explain why each of the following loops can or cannot be parallelised
+   with the 'parallel do/for' directive.
+
+   a) do i = 1, N
+         if (x(i) > maxval) exit
+      enddo
+
+      for (i = 0; i < N; i++)
+         if (x[i] > maxval) break;
+
+
+   b)
+      foundit = .false.
+      do i = 1, N
+         if (a(i) == item) foundit = .true.
+      enddo
+
+      foundit = 0;
+      for (i = 0; i < N; i++)
+          if (a[i] == item) foundit = 1;
+
+
+
+   c) do i = N/2, N
+         x(i) = a * y(i) + z(i)
+      enddo
+
+      for (i = N/2 - 1; i < N; i++)
+         x[i] = a * y[i] + z[i];
+
+
+
+   d) do i = 1, N
+         do j = 1, a_size(i)
+            a(j, i) = a(j, i) + a(j + 1, i)
+         enddo
+      enddo
+
+      for (i = 0; i < N; i++)
+         for (j = 0; j < a_size[i]; j++)
+            a[i][j] += a[i][j + 1];
+

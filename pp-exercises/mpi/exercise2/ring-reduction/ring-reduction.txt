@@ -1,0 +1,11 @@
+
+Exercise - global and partial sums 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Rewrite the pass-around-the-ring program to perform its global sums by
+  using MPI global reduction (instead of passing around rank values).
+  
+- Then rewrite it so that each process computes a partial sum.
+
+- Then rewrite this so that each process prints out its partial result,
+  in the correct order (process 0, then process 1, etc.).

@@ -1,0 +1,33 @@
+
+Exercise 'ping pong'
+~~~~~~~~~~~~~~~~~~~~
+
+- Write a program in which two processes repeatedly pass a message back and
+  forth.
+
+- Insert timing calls to measure the time taken for one message
+  (send+receive).
+
+- Investigate how the time taken varies with the size of the message.
+
+- Use message sizes 1, 2, 4, 8, 16, 32, ..., ~1 million
+  or 1, 10, 100, 1000, ..., 1 million
+
+- Loop over message sizes
+
+- In the loop time this block of code with MPI_Wtime()
+
+	MPI_Send(...);
+	MPI_Recv(...);
+
+- Print out a table: message_size transfer_time
+
+- Extra task: produce a graphical plot with double logarithmic axes for
+  transfer_time(message_size)
+
+- Timers:
+
+	C       : double MPI_Wtime(void);
+ 	Fortran : real(8), external :: mpi_wtime()
+
+  see also: MPI_Wtick()

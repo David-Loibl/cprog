@@ -1,0 +1,59 @@
+Exercise - MPI-IO
+~~~~~~~~~~~~~~~~~
+
+- Work with the source code in:
+
+      laplace/laplace-par-c.tar
+      laplace/laplace-par-f90.tar
+
+- Replace output_parallel() by a routine that performs MPI-IO with
+  individual file pointers.
+
+- Employ the following MPI routines:
+
+      MPI_File_open()
+      MPI_File_seek()
+      MPI_File_write()
+      MPI_File_close()
+
+- Call the output file 'laplace.dat2'.
+
+- Write the inner region { (x,y) | 1 <= x <= Nx, 1 <= y <= Ny } only, do
+  not write the outer boundary.  The outer boundary will be added by
+  the test program iotest2, see below.
+
+- Prerequisites:
+
+    . Introduce a workaround for the missing global reduction operation
+      in diff.c/diff.f90 by modifying laplace.c/laplace.f90 in the
+      following way:
+
+         set: max_iter = 269
+         comment out: if (diff(vnew, vold, Nx, Ny) < eps) ...
+         comment out: if (iter > max_iter) die("no convergence")
+
+      Check that this hack works:
+
+         make
+         mpirun -np 4 ./laplace 1 4 | diff - laplace.out
+
+    . Unpack
+
+         laplace/laplace-io-c.tar
+         laplace/laplace-io-f90.tar
+
+      'make iotest2' and copy iotest2 to the laplace-par-c/laplace-par-f90
+      working directory.
+
+    . The binary output file 'laplace.dat2' can be converted to ASCII
+      with the iotest2 program.
+
+      Command line for testing: 
+
+         mpirun -np (Px*Py) ./laplace Px Py  &&  ./iotest2 | diff - laplace.out
+
+-------------------------------------------------------------------------------
+- An alternative solution using 'collective I/O' can be found in 
+
+      output_parallel_collective.c
+      output_parallel_collective.f90

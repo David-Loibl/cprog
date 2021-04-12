@@ -1,0 +1,46 @@
+
+Working with the Laplace version prepared for OpenMP parallelisation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Parallelise the program which was discussed in the lectures with OpenMP.
+
+- Parallelise loop by loop by employing the directive
+
+    #pragma omp parallel for
+
+  or 
+
+    !$omp parallel do
+
+  respectively
+
+
+- Candidates for parallelisation are the following kinds of loops:
+
+    for (i = 0; i <= Nx + 1; i++)
+    for (i = 1; i <= Nx; i++)
+    for (j = 0; j <= Ny + 1; j++)
+    for (j = 1; j <= Ny; j++)
+    for (x = 0; x <= Nx + 1; x++)
+    for (x = 1; x <= Nx; x++)
+    for (y = 0; y <= Ny + 1; y++)
+    for (y = 1; y <= Ny; y++)
+
+  or
+
+    do i = 0, Nx + 1
+    do i = 1, Nx
+    do j = 0, Ny + 1
+    do j = 1, Ny
+    do x = 0, Nx + 1
+    do x = 1, Nx
+    do y = 0, Ny + 1
+    do y = 1, Ny
+
+  respectively
+
+- For nested loops the outer loop shall be parallelised.
+
+- In any case, check first whether it is possible to parallelise a loop.
+
+Advice: Always run tests with several numbers of threads.

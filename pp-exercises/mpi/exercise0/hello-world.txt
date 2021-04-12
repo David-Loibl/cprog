@@ -1,0 +1,16 @@
+
+Exercise 'Hello World'
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Write a minimal MPI program that prints 'Hello world'.
+
+- Compile it.
+
+- Run it on a single processor.
+
+- Run it on several processors in parallel.
+
+- Modify your program so that only the process ranked 0 in MPI_COMM_WORLD
+  prints out.
+
+- Modify your program so that the number of processes is printed out.

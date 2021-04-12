@@ -1,0 +1,7 @@
+
+1. a) Replace 'private' by 'shared' in second OpenMP program.
+
+   b) Replace 'shared' by 'private' in third OpenMP program.
+
+   c) Run both programs.  Vary the numbers of threads.
+      What do you observe?

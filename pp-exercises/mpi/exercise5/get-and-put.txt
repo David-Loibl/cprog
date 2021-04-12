@@ -1,0 +1,20 @@
+Exercise - 'get' and 'put'
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Work with the source code in:
+
+      laplace/laplace-shmem-c.tar
+      laplace/laplace-shmem-f90.tar
+
+      . the code is 'shmem' except for MPI_Wtime() 
+      . compiles, for example, with Open MPI 1.10.2 (see Makefiles)
+
+- Use 'shmem_put' instead of 'shmem_get' in:
+
+      exchange_boundary.c
+      exchange_boundary.f90
+
+- Use 'MPI_Get' instead of 'shmem_get' in:
+
+      output_parallel.c
+      output_parallel.f90

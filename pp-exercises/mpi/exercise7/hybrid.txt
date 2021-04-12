@@ -1,0 +1,8 @@
+Exercise - Hybrid 'hello world' program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Write a hybrid (MPI plus OpenMP) 'hello world' program.
+
+- Each thread should print out its ID and the rank of its MPI process.
+
+- Compile and run the program.

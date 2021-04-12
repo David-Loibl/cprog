@@ -1,0 +1,9 @@
+
+Exercise - MPI Topology
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- Rewrite the exercise passing numbers round the ring using a
+  one-dimensional ring topology.
+
+- Rewrite the exercise in two dimensions, as a torus.  Each row of the
+  torus should compute its own separate result.

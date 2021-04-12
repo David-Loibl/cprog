@@ -1,0 +1,28 @@
+
+Suggestions for things to try with the MPI version of the Laplace program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1) Introduce a suitable reduction routine in diff().
+
+2) Introduce MPI_PROC_NULL.
+   Introduce MPI_Sendrecv() in exchange_boundary().
+   Introduce datatypes for the boundary exchange in x- and y-directions.
+
+3) Replace Sendrecvs in exchange_boundary() by Irecvs, Isends and a
+   single Waitall.
+
+4) Repeat 2) with the nine-point stencil.
+
+5) Repeat 3) with the nine-point stencil.
+
+6) Modify output_parallel() in such a way that whole lines 
+   (1 <= x_local <= Lx) are communicated in a single step.
+
+7) Modify output_parallel() in such a way that *all* points
+   { (x_local, y_local) | 1 <= x_local <= Lx, 1 <= y_local <= Ly } 
+   are communicated in a single step. (Definition of two MPI datatypes.)
+ 
+Hints on testing: One should test with several decompositions, for
+example:
+ 
+(procs_x, procs_y) = (1,1), (1,5), (1,20), (2,1), (10,1), (2,2), (5,4)

@@ -1,0 +1,16 @@
+
+Exercise - Derived datatypes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Modify the passing-around-a-ring exercise.
+
+- Calculate two separate sums:
+
+ 	. rank integer sum, as before
+ 	. rank floating point sum
+
+- Use a struct (C) or type (Fortran) datatype for this.
+
+- Extra task: Instead of passing around the ring use global reduction
+  and a user-defined function for the sum of the struct.
+  Use hints.c or hints.f90 respectively.
